@@ -22,7 +22,7 @@
 #define MAX_STRING_LENGTH 19
 #define MIN_STRING_LENGTH 4
 
-void searchGrid(char** grid, char** dictionaryList, int row, int col, int* numWords, const int DX_SIZE, const int DX[], const int DY[], int gridCount);
+void searchGrid(char** grid, char** dictionaryList, int row, int col, int* numWords, int gridCount);
 char** readList(FILE* dictionary, char** dictionaryList, int* numWords);
 int binSearch(char** dictionaryList, int numWords, char* keyWord);
 char** makeGrid(char** grid, int row, int col);
@@ -31,9 +31,7 @@ void destroyGrid(char** grid, int row);
 
 int main(void) {
 
-    const int DX_SIZE = 8;
-    const int DX[] = {-1,-1,-1,0,0,1,1,1};
-    const int DY[] = {-1,0,1,-1,1,-1,0,1};
+
     char** dictionaryList = NULL;
     int* numWords;
     char** grid = NULL;
@@ -65,7 +63,7 @@ int main(void) {
             scanf("%d", &col);
 
             grid = makeGrid(grid, row, col);
-            searchGrid(grid, dictionaryList, row, col, numWords, DX_SIZE, DX, DY, x + 1);
+            searchGrid(grid, dictionaryList, row, col, numWords, x + 1);
             destroyGrid(grid, row);
         }
 
@@ -134,8 +132,10 @@ char** makeGrid(char** grid, int row, int col) {
 }
 
 // SEARCH THRUOUGH GRID IN EVERY DIRECTION, AND PRINT WORDS FOUND //
-void searchGrid(char** grid, char** dictionaryList, int row, int col, int* numWords, const int DX_SIZE, const int DX[], const int DY[], int gridCount) {
-
+void searchGrid(char** grid, char** dictionaryList, int row, int col, int* numWords, int gridCount) {
+    const int DX_SIZE = 8;
+    const int DX[] = {-1,-1,-1,0,0,1,1,1};
+    const int DY[] = {-1,0,1,-1,1,-1,0,1};
     int newX, newY, found;
     int keyWordCounter = 0;
     int counter = 0;
@@ -160,7 +160,7 @@ void searchGrid(char** grid, char** dictionaryList, int row, int col, int* numWo
 
                     keyWord[keyWordCounter] = grid[newX][newY];
 
-                    // If keyword meets requirements (MIN_STRING_LENGTH < length < MAX_STRING_LENGTH), 
+                    // If keyword meets requirements (MIN_STRING_LENGTH < length < MAX_STRING_LENGTH),
                     // check if it exists in dictionary
                     if (strlen(keyWord) > MIN_STRING_LENGTH || strlen(keyWord) <= MAX_STRING_LENGTH) {
                         found = binSearch(dictionaryList, *numWords, keyWord);
