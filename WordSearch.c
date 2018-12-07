@@ -160,8 +160,9 @@ void searchGrid(char** grid, char** dictionaryList, int row, int col, int* numWo
 
                     keyWord[keyWordCounter] = grid[newX][newY];
 
-                    // If keyword meets requirements (3 < length < 20), check if it exists in dictionary
-                    if (strlen(keyWord) > 3 || strlen(keyWord) <= 19) {
+                    // If keyword meets requirements (MIN_STRING_LENGTH < length < MAX_STRING_LENGTH), 
+                    // check if it exists in dictionary
+                    if (strlen(keyWord) > MIN_STRING_LENGTH || strlen(keyWord) <= MAX_STRING_LENGTH) {
                         found = binSearch(dictionaryList, *numWords, keyWord);
                         if (found) {
                             counter++;
