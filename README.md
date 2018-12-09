@@ -23,7 +23,7 @@ The following r lines will contain strings of exactly c characters, all of which
 ### Sample Input
 
 ```
-2         # Solve 2 puzzlues
+2         # Solve 2 puzzles
 
 4 4       # Configuration puzzle 1
 hello
