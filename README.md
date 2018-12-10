@@ -30,6 +30,13 @@ The input cases (configurations) follow, r and c, representing the number of row
 
 The following r lines will contain strings of exactly c characters, all of which will be lowercase letters for each row of the word search grid for that input case.
 
+**Search Keyword Restrictions**
+```c
+#define MAX_STRING_LENGTH 19
+#define MIN_STRING_LENGTH 4
+```
+
+
 ### Sample Input
 
 ```
