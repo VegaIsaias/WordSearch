@@ -14,6 +14,16 @@ Dictionary file contains 149,000+ words.
 
 ## Usage 
 
+**To Compile**
+```
+gcc WordSearch.c
+```
+
+**To Run**
+```
+a
+```
+
 The first line of input will contain a single positive integer x, representing the number of input cases.
 
 The input cases (configurations) follow, r and c, representing the number of rows and columns respectively, in the word search grid.
