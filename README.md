@@ -1,5 +1,7 @@
 # WordSearch
 
+![licence](https://img.shields.io/github/license/vegaisaias/wordsearch)
+
 Command line application, solves any word search puzzle that falls within specified dimensions. 
 
 ## The Problem
